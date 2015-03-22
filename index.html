@@ -1,0 +1,179 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <script src="../build/tracking-min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="http://ricostacruz.com/jquery.transit/jquery.transit.js"></script>
+  <script src="https://cdn.webrtc-experiment.com/MediaStreamRecorder.js"></script>
+  <script src="timbre.js"></script>
+  <style>
+  .rect {
+    position: absolute;
+  }
+
+  #video {
+    position: absolute;
+  }
+
+  </style>
+</head>
+<body>
+  <div class="demo-title">
+    <p><a href="http://trackingjs.com" target="_parent">tracking.js</a> － detect certain colors in a image</p>
+  </div>
+
+  <div class="input-frame">
+    <div class="input-container">
+        <h2>Input</h2>
+          <video muted autoplay id="video" loop="loop" width="320" height="180">
+        </video>
+      </div>
+    </div>
+
+
+    <script>
+    window.onload = function() {
+      trackingInit();
+      CameraInit();
+    }
+
+    var mediaConstraints = { video: true };
+    var index = 1;
+    var mediaRecorder;
+    var video;
+    var stream;
+    var os_index = 0;
+    var offset = new Array(2);
+    var motion_index;
+    var play_count = 0;
+
+    function CameraInit() {
+      navigator.getUserMedia(mediaConstraints, onMediaInit, onMediaError);
+    }
+
+    function startRecording() {
+
+      video.play();
+      mediaRecorder = new MediaStreamRecorder(stream);
+      mediaRecorder.mimeType = 'video/webm'; // this line is mandatory
+      mediaRecorder.videoWidth  = 320;
+      mediaRecorder.videoHeight = 240;
+      mediaRecorder.ondataavailable = function(blob) {
+        var video = document.getElementById("videodata");
+        video.src = URL.createObjectURL(blob);
+        video.play();
+      };
+      console.log(mediaRecorder);
+
+      var timeInterval = 600 * 1000;
+      timeInterval = parseInt(timeInterval);
+      // get blob after specific time interval
+      setTimeout(function() {
+        video.pause();
+        mediaRecorder.stop();
+      }, timeInterval);
+      mediaRecorder.start(timeInterval);
+    }
+
+    //
+    function onMediaInit(Stream) {
+      video = document.getElementById('video');
+      video.src = URL.createObjectURL(Stream);
+      console.log(video);
+      video.height = 240;
+      video.width = 320;
+      video.autoplay = "true";
+      stream = Stream;
+    }
+
+      function onMediaError(e) {
+        console.error('media error', e);
+      }
+
+    // below function via: http://goo.gl/B3ae8c
+    function bytesToSize(bytes) {
+     var k = 1000;
+     var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+     if (bytes === 0) return '0 Bytes';
+     var i = parseInt(Math.floor(Math.log(bytes) / Math.log(k)),10);
+     return (bytes / Math.pow(k, i)).toPrecision(3) + ' ' + sizes[i];
+    }
+
+    function trackingInit() {
+        var count = 0;
+        var vid = document.getElementById('video');
+        var inputContainer = document.querySelector('.input-container');
+
+        tracking.ColorTracker.registerColor('green', function(r, g, b) {
+          if (r < 50 && g > 200 && b < 50) {
+            return true;
+          }
+          return false;
+        });
+
+        var tracker = new tracking.ColorTracker(['magenta', 'cyan', 'green']);
+
+        tracker.on('track', function(event) {
+          event.data.forEach(function(rect) {
+            if (os_index == 0) {
+              os_index++;
+              offset[os_index] = rect.y;
+            } else {
+              os_index--;
+              offset[os_index] = rect.y;
+            }
+            window.plot(rect.x, rect.y, rect.width, rect.height, rect.color);
+          $(".rect").transition({delay: 1, opacity: 0}, '0');
+          motion_index = Math.abs(offset[1] - offset[0])
+          console.log(rect.color);
+
+          if (motion_index > 45) {
+            // playSound(rect.color)
+            console.log(play_count)
+            play_count++;
+            if (play_count==4) {
+              playSound(rect.color);
+              play_count = 0;
+            }
+          };
+
+        });
+      });
+
+      tracking.track('#video', tracker);
+
+
+      window.plot = function(x, y, w, h, color) {
+        var rect = document.createElement('div');
+        document.querySelector('.input-container').appendChild(rect);
+        rect.classList.add('rect');
+        rect.style.border = '2px solid ' + color;
+        rect.style.width = w + 'px';
+        rect.style.height = h + 'px';
+        rect.style.left = (vid.offsetLeft + x) + 'px';
+        rect.style.top = (vid.offsetTop + y) + 'px';
+      };
+    };
+
+      var sineC = T("sin", {freq:261});
+      var sineD = T("sin", {freq:293, mul:0.5});
+      var sineE = T("sin", {freq:329, mul:0.5});
+
+    function playSound(color) {
+
+      if (color == "cyan") {
+        console.log("cyan played");
+        T("timeout", {timeout:400}).on("ended", function() { this.stop();
+        }).set({buddies:sineC}).start();
+      } else if (color == "magenta") {
+
+      } else if (color == "yellow") {
+
+      }
+    };
+
+  </script>
+</body>
+</html>
