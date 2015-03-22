@@ -44,6 +44,9 @@
     var mediaRecorder;
     var video;
     var stream;
+    var os_index = 0;
+    var offset = new Array(2);
+    var motion_index;
 
     function CameraInit() {
       navigator.getUserMedia(mediaConstraints, onMediaInit, onMediaError);
@@ -96,7 +99,7 @@
      var i = parseInt(Math.floor(Math.log(bytes) / Math.log(k)),10);
      return (bytes / Math.pow(k, i)).toPrecision(3) + ' ' + sizes[i];
     }
-    
+
     function trackingInit() {
         var count = 0;
         var vid = document.getElementById('video');
@@ -109,19 +112,32 @@
           return false;
         });
 
-        var tracker = new tracking.ColorTracker(['magenta', 'cyan', 'yellow', 'green']);
+        var tracker = new tracking.ColorTracker(['magenta', 'cyan', 'green']);
 
         tracker.on('track', function(event) {
           event.data.forEach(function(rect) {
-            window.plot(rect.x, rect.y, rect.width, rect.height, rect.color)
-          $(".rect").transition({delay: 1, opacity: 0}, '0')
+            if (os_index == 0) {
+              os_index++;
+              offset[os_index] = rect.y;
+            } else {
+              os_index--;
+              offset[os_index] = rect.y;
+            }
+            window.plot(rect.x, rect.y, rect.width, rect.height, rect.color);
+          $(".rect").transition({delay: 1, opacity: 0}, '0');
+          motion_index = Math.abs(offset[1] - offset[0])
+          console.log(rect.color);
+
+          if (motion_index > 35) { playSound(rect.color)};
+
         });
       });
 
       tracking.track('#video', tracker);
 
+
       window.plot = function(x, y, w, h, color) {
-        var rect = document.createElement('div.find');
+        var rect = document.createElement('div');
         document.querySelector('.input-container').appendChild(rect);
         rect.classList.add('rect');
         rect.style.border = '2px solid ' + color;
@@ -130,6 +146,12 @@
         rect.style.left = (vid.offsetLeft + x) + 'px';
         rect.style.top = (vid.offsetTop + y) + 'px';
       };
+    };
+
+    function playSound(color) {
+      if (color == "cyan") {
+        console.log("cyan played");
+      }
     };
 
   </script>
