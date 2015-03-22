@@ -1,6 +1,8 @@
 var keys = ['#key1', '#key2', '#key3', '#key4', '#key5', '#key6', '#key7',
 '#key8', '#key9', '#key10', '#key11', '#key12', '#key13', '#key14', '#key15', '#key16', '#key17', '#key18', '#key19', '#key20', '#key21', '#key22', '#key23', '#key24', '#key25', '#key26', '#key27', '#key28'];
 
+var registers = ['C3', 'C#3', 'D3', 'D#3', 'E3', 'F3', 'F#3', 'G3', 'G#3', 'A3', 'A#3', 'B3', 'C4', 'C#4', 'D4', 'D#4', 'E4', 'F4', 'F#4', 'G4', 'G#4', 'A4', 'A#4', 'B4', 'C5', 'C#5', 'D5', 'D#5']
+
 //For white key
 function keyed (number){
 	$(keys[number] + ", " + keys[number] + "name").mousedown(
@@ -10,6 +12,9 @@ function keyed (number){
 				"border-right": "solid #BDBDBD 2px",
 				"border-bottom": "solid #BDBDBD 2px"
 			})
+			beeplay()
+			.play(registers[number], 1)
+
 		}
 	)
 	$(keys[number] +", " + keys[number]+"name").hover(function(){
@@ -42,6 +47,8 @@ function blackkeyed (number){
 				"border-right": "solid black 2px",
 				"border-bottom": "solid black 2px"
 			})
+			beeplay()
+			.play(registers[number], 1)
 		}
 	)
 	$(keys[number] +", " + keys[number]+"name").hover(function(){
