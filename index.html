@@ -322,92 +322,54 @@
     };
   };
 
-  var goPurple = false;
-  var goCyan = false;
-  var goGreen = false;
-  var goMagenta = false;
-  var goRed = false;
-  var goYellow = false;
-
-  function nopurple(){
-    $("#ball0").css({"-webkit-animation": "none"});
-    goPurple = false;
-  }
-
-  function nogreen(){
-    $("#ball1").css({"-webkit-animation": "none"});
-    goGreen = false;
-  }
-
-  function nocyan(){
-    $("#ball2").delay(100).animate({"-webkit-animation": "none"}, 0);
-    goCyan = false;
-  }
-
-  function nomagenta(){
-    $("#ball3").css({"-webkit-animation": "none"});
-    goMagenta = false;
-  }
-
-  function nored(){
-    $("#ball4").css({"-webkit-animation": "none"});
-    goRed = false;
-  }
-
-  function noyellow(){
-    $("#ball5").css({"-webkit-animation": "none"});
-    goYellow = false;
-  }
-
   function yespurple(){
-    if (goPurple == true){
-      $("#ball0").css({"-webkit-animation": "ball 0.5s linear 0s 1"}).queue()
-      nopurple();
-    }
+     $("#ball0").transition({
+      y: -320
+    }, 500)
+    .transition({delay: 10, y: 0}, 0)
   }
 
   function yescyan(){
-    if (goCyan == true){
-      $("#ball2").css({"-webkit-animation": "ball 0.5s linear 0s 1"})
-      nocyan();
-    }
+    $("#ball2").transition({
+      y: -320
+    }, 500)
+    .transition({delay: 10, y: 0}, 0)
   }
   function yesgreen(){
-    if (goGreen == true){
-      $("#ball1").css({"-webkit-animation": "ball 0.5s linear 0s 1"})
-      nogreen();
-    }
+     $("#ball1").transition({
+      y: -320
+    }, 500)
+    .transition({delay: 10, y: 0}, 0)
   }
   function yesmagenta(){
-    if (goMagenta == true){
-      $("#ball3").css({"-webkit-animation": "ball 0.5s linear 0s 1"})
-      nomagenta();
-    }
+     $("#ball3").transition({
+      y: -320
+    }, 500)
+    .transition({delay: 10, y: 0}, 0)
   }
   function yesred(){
-    if (goRed == true){
-      $("#ball4").css({"-webkit-animation": "ball 0.5s linear 0s 1"})
-      nored();
-    }
+     $("#ball4").transition({
+      y: -320
+    }, 500)
+    .transition({delay: 10, y: 0}, 0)
   }
   function yesyellow(){
-    if (goYellow == true){
-      $("#ball5").css({"-webkit-animation": "ball 0.5s linear 0s 1"})
-      noyellow();
-    }
+     $("#ball5").transition({
+      y: -320
+    }, 500)
+    .transition({delay: 10, y: 0}, 0)
   }
 
   function playSound(color) {
 
     if (color == "cyan") {
-      goCyan = true;
-        // console.log("cyan played");
-        var a1 = beeplay()
-        .play('C4', 1)
-        yescyan()
-      } 
+      // console.log("cyan played");
+      var a1 = beeplay()
+      .play('C4', 1)
+      yescyan()
+    } 
 
-      else if (color == "magenta") {
+     if (color == "magenta") {
         goMagenta = true;
         // console.log("magenta played");
         var a2 = beeplay()
@@ -415,7 +377,7 @@
         yesmagenta()
       } 
 
-      else if (color == "yellow") {
+     if (color == "yellow") {
         goYellow = true;
         // console.log("yellow played");
         var a3 = beeplay()
@@ -423,7 +385,7 @@
         yesyellow()
       } 
 
-      else if (color == "purple") {
+      if (color == "purple") {
         goPurple = true;
         // console.log("purple played");
         var a4 = beeplay()
@@ -431,7 +393,7 @@
         yespurple()
       } 
 
-      else if (color == "green") {
+      if (color == "green") {
         goGreen = true;
         // console.log("green played");
         var a4 = beeplay()
@@ -439,7 +401,7 @@
         yesgreen()
       } 
 
-      else if (color == "red") {
+      if (color == "red") {
         goRed = true;
         // console.log("red played");
         var a4 = beeplay()
