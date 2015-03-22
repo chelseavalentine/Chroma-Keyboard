@@ -1,0 +1,172 @@
+@import 'color';
+@import 'page';
+@import 'background';
+
+//Elements needed for camera
+.left{
+	display: inline-block;
+	position: relative;
+	max-width: 80%;
+    vertical-align: top;
+    margin-top: -20px;
+}
+
+// Front-end display
+.playpen{
+	display: flex;
+	-webkit-flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-end;
+	height: 400px;
+	width: 500px;
+	padding: 0 150px 25px 150px;
+	background-color: $grey100;
+	border: solid $grey200 2px;
+}
+
+.holdball{
+	display: flex;
+	align-items: flex-end;
+}
+
+.ball{
+	position: relative;
+	display: block;
+	width: 50px;
+	height: 50px;
+	border-radius: 100%;
+	z-index: 2;
+}
+
+#ball0{
+	background-color: $deeppurple500;
+}
+
+#ball1{
+	background-color: $green800;
+}
+
+#ball2{
+	background-color: $cyan500;
+}
+
+#ball3{
+	background-color: $pinkA200;
+}
+
+#ball4{
+	background-color: $red800;
+}
+
+#ball5{
+	background-color: $amber500;
+}
+@-webkit-keyframes ball {
+	0% { 
+		-webkit-transform: translateY(-320px) scaleY(1.1); 
+	}
+	33% { 
+		-webkit-transform: translateY(0px) scaleY(1.1); 
+	}
+	35% { 
+		-webkit-transform: translateY(10px) scaleY(0.9); 
+	}
+	66% { 
+		-webkit-transform: translateY(-100px) scaleY(1.1); 
+	}
+	100% { 
+		-webkit-transform: translateY(0px) ; 
+	}
+}
+
+.shadow{
+	position: relative;
+	background-color: black;
+	align-self: flex-end;
+	display: block;
+	width: 30px;
+	height: 3px;
+	border-radius: 15px/1.5px;
+	opacity: 0.05;
+	-webkit-animation: shadow 0.5s linear 0s 1;
+	z-index: 1;
+}
+
+@-webkit-keyframes shadow {
+	33% { 
+		width: 40px;
+		height: 3px;
+		border-radius: 20px/1.5px;
+	}
+	66%{
+		width: 35px;
+		height: 3px;
+		border-radius: 17.5px/1.5px;
+	}
+	100% { 
+		width: 30px;
+		height: 3px;
+		border-radius: 15px/1.5px;
+	}
+}
+
+.piano{
+	display: flex;
+	justify-content: space-between;
+	width: 800px;
+	height: 150px;
+	margin-top: 20px;
+	border-top: solid $grey900 30px;
+	padding: 0;
+}
+
+.whitekey{
+	background-color: $grey100;
+	display: flex;
+	-webkit-flex-direction: row;
+	align-items: flex-end;
+	position: relative;
+	margin: 0;
+	border-right: solid $grey300 2px;
+	border-bottom: solid $grey300 2px;
+	width: 50px;
+	height: 150px;
+	z-index: 1;
+}
+
+.blackkey{
+	@extend .whitekey;
+	position: absolute;
+	background-color: black;
+	margin-left: -15px;
+	width: 20px;
+	height: 100px;
+	border-left: solid $grey800 3px;
+	border-bottom: solid $grey800 2px;
+	border-right: solid black 1px;
+	box-shadow: 2px 0 1px 1.5px rgba(0,0,0,0.38);
+	z-index: 2;
+}
+
+#key28{
+	width: 10px;
+	box-shadow: 0 -2px 1px 1.5px rgba(0, 0, 0, 0.38);
+}
+
+.whitename{
+	position: relative;
+	display: block;
+	text-transform: uppercase;
+	font-size: 1.2em;
+	padding: 0;
+	margin: 0;
+	margin-left: 15px;
+	opacity: 0.4;
+}
+
+.blackname{
+	@extend .whitename;
+	font-size: 1em;
+	color: white;
+	margin-left: 0;
+}
