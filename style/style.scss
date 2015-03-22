@@ -1,0 +1,99 @@
+@import 'color';
+@import 'page';
+@import 'background';
+
+.playpen{
+	display: flex;
+	-webkit-flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-end;
+	height: 400px;
+	width: 500px;
+	padding: 0 150px 25px 150px;
+	background-color: $cyan50;
+	box-shadow: 0px 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.piano{
+	display: flex;
+	justify-content: space-between;
+	width: 800px;
+	height: 150px;
+	margin-top: 20px;
+	border-top: solid $grey900 20px;
+	padding: 0;
+	box-shadow: 0px 0 1px 3px rgba(0,0,0,0.15);
+}
+
+.ball{
+	position: relative;
+	display: block;
+	width: 50px;
+	height: 50px;
+	border-radius: 100%;
+	-webkit-animation: ball 0.5s linear 0s 1;
+}
+
+#ball1{
+	background-color: $cyan500;
+}
+
+#ball2{
+	background-color: $deeppurple400;
+}
+
+#ball3{
+	background-color: $lightgreen500;
+}
+
+@-webkit-keyframes ball {
+	0% { -webkit-transform: translateY(-320px) scaleY(1.1); }
+	33% { -webkit-transform: translateY(0px) scaleY(1.1); }
+	35% { -webkit-transform: translateY(10px) scaleY(0.9); }
+	66% { -webkit-transform: translateY(-100px) scaleY(1.1); }
+	100% { -webkit-transform: translateY(0px) ; }
+}
+		
+.whitekey{
+	background-color: $grey100;
+	display: inline-block;
+	position: relative;
+	margin: 0;
+	border-right: solid $grey200 2px;
+	border-bottom: solid $grey200 2px;
+	width: 50px;
+	height: 150px;
+	z-index: 1;
+}
+
+.blackkey{
+	@extend .whitekey;
+	position: absolute;
+	background-color: black;
+	margin-left: -15px;
+	width: 20px;
+	height: 100px;
+	border-left: solid $grey800 3px;
+	border-bottom: solid $grey800 2px;
+	border-right: solid black 1px;
+	box-shadow: 2px 0 1px 1.5px rgba(0,0,0,0.38);
+	z-index: 2;
+}
+
+#lastblack{
+	width: 10px;
+	box-shadow: 0 -2px 1px 1.5px rgba(0, 0, 0, 0.38);
+	margin-left: -13px;
+}
+/*@-webkit-keyframes bounceplz {
+	0%{
+
+	}
+	50%{
+		top: -300px;
+	}
+
+	100%{
+		top: 0;
+	}
+}*/
