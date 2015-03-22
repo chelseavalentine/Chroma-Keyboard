@@ -1,16 +1,16 @@
-.font, h1, h2, h3, h4, h6, h5, p, p.caption, p.caption2, blockquote, footer, a, ul, ol, button {
+.font, h1, h2, h3, p, footer, a, button {
   font-family: 'Roboto', 'Noto', sans-serif;
   font-weight: 400;
   margin-top: 0;
   margin-bottom: 0;
   text-align: left; }
 
-.headers, h1, h2, h3, h4, h6, h5 {
-  color: #FFFFFF;
+.headers, h1, h2, h3 {
+  color: white;
   opacity: 1;
   padding: 20px; }
 
-.texts, p, p.caption, p.caption2, blockquote, footer, a, ul, ol {
+.texts, p, footer, a {
   color: #212121;
   opacity: 0.95; }
 
@@ -31,64 +31,12 @@ h2 {
 h3 {
   font-size: 2em; }
 
-h4 {
-  color: #000000;
-  font-size: 1.5em; }
-
-/*This controls the header of the site 'Chelsea Valentine'*/
-h6, h5 {
-  font-weight: 500;
-  font-size: 18px;
-  text-transform: uppercase;
-  margin-left: 35px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding: 0;
-  opacity: 1; }
-
-/*Font of the topbar titles*/
-h5 {
-  display: inline-block;
-  margin-left: 0;
-  padding: 0;
-  opacity: 1; }
-
 p {
   font-size: 0.9em;
   margin-left: 15px;
-  margin-bottom: 15px;
-  line-height: 200%;
-  max-width: 600px; }
-
-p + p.indent {
-  text-indent: 50px; }
-
-p.caption {
-  color: #606060;
-  font-size: 0.8em; }
-
-p.caption2 {
-  color: #9D9D9D;
-  font-size: 0.8em; }
-
-blockquote {
-  color: #FF5621;
-  max-width: 520px;
-  font-size: 0.9em; }
-
-b {
-  color: #000000;
-  font-weight: 700;
-  text-transform: uppercase; }
-
-u {
-  color: #FF9100; }
-
-em, i {
-  color: #FCD734; }
-
-s {
-  color: #BDBDBD; }
+  line-height: 1.5;
+  max-width: 600px;
+  text-align: left; }
 
 footer {
   color: #212121;
@@ -97,16 +45,6 @@ footer {
   opacity: 1;
   margin-top: 40px;
   margin-bottom: 10px; }
-
-hr.footer {
-  background-color: #ededed;
-  border: 0;
-  border-top: solid #f9f9f9 1px;
-  border-right: solid #bcbcbc 1px;
-  height: 1px;
-  position: relative;
-  text-align: left;
-  width: 100%; }
 
 /*Links, lists, selection*/
 ::selection {
@@ -120,56 +58,9 @@ a:hover, a:active {
   color: #ff436c;
   text-decoration: underline; }
 
-a.no:link, a.no:visited {
-  color: white;
-  text-decoration: none; }
-
-a.no:hover, a.no:active {
-  color: white;
-  text-decoration: none; }
-
-ul, ol {
-  font-size: 0.9em;
-  margin-bottom: 20px; }
-
-li {
-  margin-bottom: 10px;
-  max-width: 600px; }
-
-/*Side bar*/
-ul.menu {
-  top: 70px;
-  position: relative;
-  margin-left: -40px;
-  width: 100%; }
-
-hr.menu {
-  height: 1px;
-  border: none;
-  width: 90%;
-  background: #424242; }
-
-li.menu {
-  display: block;
-  margin-left: 10px;
-  list-style: none;
-  padding: 5px;
-  font-size: 18px;
-  font-weight: 500; }
-
-a.menu:link, a.menu:visited {
-  opacity: 1;
-  color: white;
-  text-decoration: none; }
-
-a.menu:hover, a.menu:active {
-  opacity: 1;
-  color: #757575;
-  text-decoration: none; }
-
 button {
   background: #ff436c;
-  color: #FFFFFF;
+  color: white;
   padding: 10px;
   text-transform: uppercase;
   font-weight: 600;
@@ -181,13 +72,12 @@ button {
 button:hover {
   background: #00BCD4; }
 
-.nodefault, body, .topbar, img.menu, div.sidebar {
+.nodefault, body, .topbar {
   top: 0;
   left: 0;
   margin: 0; }
 
 body {
-  padding-top: 50px;
   height: 100%;
   width: 100%;
   font-size: 1em;
@@ -202,51 +92,6 @@ body {
   z-index: 4;
   box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.25); }
 
-/* The things that go in the topbar*/
-div.headerContent {
-  left: 10px;
-  position: relative; }
-
-/*Holds 'Chelsea Valentine'*/
-div.header {
-  position: absolute;
-  display: none;
-  width: 250px;
-  height: 50px;
-  background-color: #26C6DA;
-  text-align: center;
-  z-index: 4; }
-
-/*Heart image that opens sidebar*/
-img.menu {
-  position: relative;
-  top: 5px;
-  margin-left: 20px;
-  margin-right: 10px;
-  display: inline-block;
-  opacity: 0.5; }
-
-/*Slides open when heart menu clicked*/
-div.sidebar {
-  position: fixed;
-  display: none;
-  width: 250px;
-  height: 100%;
-  background-color: #212121;
-  z-index: 4; }
-
-/*When you click the menu button, the page is dimmed*/
-.cover {
-  display: none;
-  position: fixed;
-  background-color: #000000;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.8;
-  z-index: 3; }
-
 @-webkit-keyframes page {
   20% {
     opacity: 0.75; }
@@ -258,40 +103,33 @@ div.sidebar {
     opacity: 0.25; }
   100% {
     opacity: 0.5; } }
-.container, .standalone, .holder {
+.container, .holder {
   position: relative;
   top: 0;
   max-width: 1000px;
   width: 98%;
   min-width: 640px;
-  height: 100%;
   text-align: left;
   box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.18);
-  margin-top: 50px;
   padding-bottom: 10px;
-  background-color: #FFFFFF;
+  background-color: white;
   z-index: 2; }
-
-.standalone {
-  padding-bottom: 0; }
 
 .holder {
   background: none;
   padding-bottom: 0px;
-  box-shadow: none; }
+  box-shadow: none;
+  display: inline-block;
+  max-width: 800px;
+  width: 800px;
+  min-width: 800px; }
 
-div.part, div.part2, div.part3, div.subpart {
+div.part, div.subpart {
   position: relative;
   width: 100%;
   top: 0;
   left: 0;
   margin-bottom: 50px; }
-
-div.part2 {
-  margin-bottom: 20px; }
-
-div.part3 {
-  margin-bottom: 0; }
 
 div.subpart {
   margin-top: -30px; }
@@ -969,66 +807,6 @@ div.subpart {
 .deeporangeA700 {
   background-color: #dd2c00; }
 
-.brown50 {
-  background-color: #efebe9; }
-
-.brown100 {
-  background-color: #d7ccc8; }
-
-.brown200 {
-  background-color: #bcaaa4; }
-
-.brown300 {
-  background-color: #a1887f; }
-
-.brown400 {
-  background-color: #8d6e63; }
-
-.brown500 {
-  background-color: #795548; }
-
-.brown600 {
-  background-color: #6d4c41; }
-
-.brown700 {
-  background-color: #5d4037; }
-
-.brown800 {
-  background-color: #4e342e; }
-
-.brown900 {
-  background-color: #3e2723; }
-
-.bluegrey50 {
-  background-color: #eceff1; }
-
-.bluegrey100 {
-  background-color: #cfd8dc; }
-
-.bluegrey200 {
-  background-color: #b0bec5; }
-
-.bluegrey300 {
-  background-color: #90a4ae; }
-
-.bluegrey400 {
-  background-color: #78909c; }
-
-.bluegrey500 {
-  background-color: #607d8b; }
-
-.bluegrey600 {
-  background-color: #546e7a; }
-
-.bluegrey700 {
-  background-color: #455a64; }
-
-.bluegrey800 {
-  background-color: #37474f; }
-
-.bluegrey900 {
-  background-color: #263238; }
-
 .grey50 {
   background-color: #fafafa; }
 
@@ -1063,28 +841,17 @@ div.subpart {
   background-color: black; }
 
 .white {
-  backgrund-color: white; }
+  background-color: white; }
 
 .coral500 {
   background-color: #ff436c; }
 
-.beige50 {
-  background-color: #fffcf8; }
-
-.beige100 {
-  background-color: #f9f6f2; }
-
-.beige200 {
-  background-color: #f7f2eb; }
-
-.beige300 {
-  background-color: #f2eae2; }
-
-.beige400 {
-  background-color: #eae0d8; }
-
-.beige500 {
-  background-color: #e5d8cf; }
+.left {
+  display: inline-block;
+  position: relative;
+  max-width: 80%;
+  vertical-align: top;
+  margin-top: -20px; }
 
 .playpen {
   display: flex;
@@ -1107,17 +874,25 @@ div.subpart {
   width: 50px;
   height: 50px;
   border-radius: 100%;
-  -webkit-animation: ball 0.5s linear 0s 1;
   z-index: 2; }
 
+#ball0 {
+  background-color: #7E57C2; }
+
 #ball1 {
-  background-color: #00BCD4; }
+  background-color: #2E7D32; }
 
 #ball2 {
-  background-color: #9575CD; }
+  background-color: #00BCD4; }
 
 #ball3 {
-  background-color: #8BC34A; }
+  background-color: #FF4081; }
+
+#ball4 {
+  background-color: #C62828; }
+
+#ball5 {
+  background-color: #FFC107; }
 
 @-webkit-keyframes ball {
   0% {
