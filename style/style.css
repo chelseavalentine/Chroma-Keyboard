@@ -1094,18 +1094,12 @@ div.subpart {
   height: 400px;
   width: 500px;
   padding: 0 150px 25px 150px;
-  background-color: #E0F7FA;
-  box-shadow: 0px 0 1px 3px rgba(0, 0, 0, 0.08); }
+  background-color: #F5F5F5;
+  border: solid #EEEEEE 2px; }
 
-.piano {
+.holdball {
   display: flex;
-  justify-content: space-between;
-  width: 800px;
-  height: 150px;
-  margin-top: 20px;
-  border-top: solid #212121 20px;
-  padding: 0;
-  box-shadow: 0px 0 1px 3px rgba(0, 0, 0, 0.15); }
+  align-items: flex-end; }
 
 .ball {
   position: relative;
@@ -1113,7 +1107,8 @@ div.subpart {
   width: 50px;
   height: 50px;
   border-radius: 100%;
-  -webkit-animation: ball 0.5s linear 0s 1; }
+  -webkit-animation: ball 0.5s linear 0s 1;
+  z-index: 2; }
 
 #ball1 {
   background-color: #00BCD4; }
@@ -1135,13 +1130,49 @@ div.subpart {
     -webkit-transform: translateY(-100px) scaleY(1.1); }
   100% {
     -webkit-transform: translateY(0px); } }
+.shadow {
+  position: relative;
+  background-color: black;
+  align-self: flex-end;
+  display: block;
+  width: 30px;
+  height: 3px;
+  border-radius: 15px/1.5px;
+  opacity: 0.05;
+  -webkit-animation: shadow 0.5s linear 0s 1;
+  z-index: 1; }
+
+@-webkit-keyframes shadow {
+  33% {
+    width: 40px;
+    height: 3px;
+    border-radius: 20px/1.5px; }
+  66% {
+    width: 35px;
+    height: 3px;
+    border-radius: 17.5px/1.5px; }
+  100% {
+    width: 30px;
+    height: 3px;
+    border-radius: 15px/1.5px; } }
+.piano {
+  display: flex;
+  justify-content: space-between;
+  width: 800px;
+  height: 150px;
+  margin-top: 20px;
+  border-top: solid #212121 30px;
+  padding: 0; }
+
 .whitekey, .blackkey {
   background-color: #F5F5F5;
-  display: inline-block;
+  display: flex;
+  -webkit-flex-direction: row;
+  align-items: flex-end;
   position: relative;
   margin: 0;
-  border-right: solid #EEEEEE 2px;
-  border-bottom: solid #EEEEEE 2px;
+  border-right: solid #E0E0E0 2px;
+  border-bottom: solid #E0E0E0 2px;
   width: 50px;
   height: 150px;
   z-index: 1; }
@@ -1158,22 +1189,23 @@ div.subpart {
   box-shadow: 2px 0 1px 1.5px rgba(0, 0, 0, 0.38);
   z-index: 2; }
 
-#lastblack {
+#key28 {
   width: 10px;
-  box-shadow: 0 -2px 1px 1.5px rgba(0, 0, 0, 0.38);
-  margin-left: -13px; }
+  box-shadow: 0 -2px 1px 1.5px rgba(0, 0, 0, 0.38); }
 
-/*@-webkit-keyframes bounceplz {
-	0%{
+.whitename, .blackname {
+  position: relative;
+  display: block;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  padding: 0;
+  margin: 0;
+  margin-left: 15px;
+  opacity: 0.4; }
 
-	}
-	50%{
-		top: -300px;
-	}
-
-	100%{
-		top: 0;
-	}
-}*/
+.blackname {
+  font-size: 1em;
+  color: white;
+  margin-left: 0; }
 
 /*# sourceMappingURL=style.css.map */

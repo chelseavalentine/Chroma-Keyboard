@@ -6,52 +6,134 @@
 	<script src="../build/tracking-min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="http://ricostacruz.com/jquery.transit/jquery.transit.js"></script>
-	<script src="https://raw.githubusercontent.com/julianshapiro/velocity/master/velocity.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="style/style.css">
 </head>
 <body>
 	<center>
 		<div class="part grey900">
-			<h1>Header</h1>
+			<h3>Header</h3>
 		</div>
 		<div class="holder">
 			<center>
 			<br><br>
 			<div class="playpen">
-				<div class="ball" id="ball1"></div>
-				<div class="ball" id="ball2"></div>
-				<div class="ball" id="ball3"></div>
+				<div class="holdball">
+					<center>
+					<div class="ball" id="ball1"></div>
+					<div class="shadow" id="shadow1"></div>
+					</center>
+				</div>
+				<div class="holdball">
+					<center>
+					<div class="ball" id="ball2"></div>
+					<div class="shadow" id="shadow2"></div>
+					</center>
+				</div>
+				<div class="holdball">
+					<center>
+					<div class="ball" id="ball3"></div>
+					<div class="shadow" id="shadow3"></div>
+					</center>
+				</div>
 			</div>
 
 			<div class="piano">
-				<span class="whitekey"></span>
-				<span class="blackkey"></span>
-				<span class="whitekey"></span>
-				<span class="blackkey"></span>
-				<span class="whitekey"></span>
-				<span class="whitekey"></span>
-				<span class="blackkey"></span>
-				<span class="whitekey"></span>
-				<span class="blackkey"></span>
-				<span class="whitekey"></span>
-				<span class="blackkey"></span>
-				<span class="whitekey"></span>
-				<span class="whitekey"></span>
-				<span class="blackkey"></span>
-				<span class="whitekey"></span>
-				<span class="blackkey"></span>
-				<span class="whitekey"></span>
-				<span class="whitekey"></span>
-				<span class="blackkey"></span>
-				<span class="whitekey"></span>
-				<span class="blackkey"></span>
-				<span class="whitekey"></span>
-				<span class="blackkey"></span>
-				<span class="whitekey"></span>
-				<span class="whitekey"></span>
-				<span class="blackkey"></span>
-				<span class="whitekey"></span>
-				<span class="blackkey" id="lastblack"></span>
+				<span class="whitekey" id="key1">
+					<p class="whitename" id="key1name">C</p>
+				</span>
+				<span class="blackkey" id="key2">
+					<p class="blackname" id="key2name">C# <br> D&#9837;
+					</p>
+				</span>
+				<span class="whitekey" id="key3">
+					<p class="whitename" id="key3name">D</p>
+				</span>
+				<span class="blackkey" id="key4">
+					<p class="blackname" id="key4name">D# <br> E&#9837;
+					</p>
+				</span>
+				<span class="whitekey" id="key5">
+					<p class="whitename" id="key5name">E</p>
+				</span>
+				<span class="whitekey" id="key6">
+					<p class="whitename" id="key6name">F</p>
+				</span>
+				<span class="blackkey" id="key7">
+					<p class="blackname" id="key7name">F# <br> G&#9837;
+					</p>
+				</span>
+				<span class="whitekey" id="key8">
+					<p class="whitename" id="key8name">G</p>
+				</span>
+				<span class="blackkey" id="key9">
+					<p class="blackname" id="key9name">G# <br> A&#9837;
+					</p>
+				</span>
+				<span class="whitekey" id="key10">
+					<p class="whitename" id="key10name">A</p>
+				</span>
+				<span class="blackkey" id="key11">
+					<p class="blackname" id="key11name">A# <br> B&#9837;
+					</p>
+				</span>
+				<span class="whitekey" id="key12">
+					<p class="whitename" id="key12name">B</p>
+				</span>
+				<span class="whitekey" id="key13">
+					<p class="whitename" id="key13name">C</p>
+				</span>
+				<span class="blackkey" id="key14">
+					<p class="blackname" id="key14name">C# <br> D&#9837;
+					</p>
+				</span>
+				<span class="whitekey" id="key15">
+					<p class="whitename" id="key15name">D</p>
+				</span>
+				<span class="blackkey" id="key16">
+					<p class="blackname" id="key16name">D# <br> E&#9837;
+					</p>
+				</span>
+				<span class="whitekey" id="key17">
+					<p class="whitename" id="key17name">E</p>
+				</span>
+				<span class="whitekey" id="key18">
+					<p class="whitename" id="key18name">F</p>
+				</span>
+				<span class="blackkey" id="key19">
+					<p class="blackname" id="key19name">F# <br> G&#9837;
+					</p>
+				</span>
+				<span class="whitekey" id="key20">
+					<p class="whitename"  id="key20name">G</p>
+				</span>
+				<span class="blackkey" id="key21">
+					<p class="blackname" id="key21name">G# <br> A&#9837;
+					</p>
+				</span>
+				<span class="whitekey" id="key22">
+					<p class="whitename" id="key22name">A</p>
+				</span>
+				<span class="blackkey" id="key23">
+					<p class="blackname" id="key23name">A# <br> B&#9837;
+					</p>
+				</span>
+				<span class="whitekey" id="key24">
+					<p class="whitename" id="key24name">B</p>
+				</span>
+				<span class="whitekey" id="key25">
+					<p class="whitename" id="key25name">C</p>
+				</span>
+				<span class="blackkey" id="key26">
+					<p class="blackname" id="key26name">C# <br> D&#9837;
+					</p>
+				</span>
+				<span class="whitekey" id="key27">
+					<p class="whitename" id="key27name">D</p>
+				</span>
+				<span class="blackkey" id="key28">
+					<p class="blackname" id="key28name">D <br> E
+					</p>
+				</span>
 			</div>
 			</center>
 		<footer>
