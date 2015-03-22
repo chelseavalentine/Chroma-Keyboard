@@ -1,0 +1,249 @@
+.font{
+  font-family: 'Roboto', 'Noto', sans-serif;
+  font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.headers{
+  color: $white;
+  opacity: 1;
+  padding: 20px;
+}
+
+.texts{
+  color: $grey900;
+  opacity: 0.95;
+}
+
+.center{
+  text-align: center;
+}
+
+/*Basic fonts*/
+h1{
+  @extend .font;
+  @extend .headers;
+  font-size: 6em;
+  text-align: center;
+  font-weight: 600;
+  padding: 40px;
+}
+
+h2{
+  @extend .font;
+  @extend .headers;
+  font-size: 2.5em;
+  font-weight: 400;
+}
+
+h3 {
+  @extend .font;
+  @extend .headers;
+  font-size: 2em;
+}
+
+h4 {
+  @extend .font;
+  @extend .headers;
+  color: $black;
+  font-size: 1.5em;
+}
+
+/*This controls the header of the site 'Chelsea Valentine'*/
+h6{
+  @extend .font;
+  @extend .headers;
+  font-weight: 500;
+  font-size: 18px;
+  text-transform: uppercase;
+  margin-left: 35px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 0;
+  opacity: 1;
+}
+
+/*Font of the topbar titles*/
+h5{
+  @extend .font;
+  @extend .headers;
+  display: inline-block;
+  @extend h6;
+  margin-left: 0;
+  padding: 0;
+  opacity: 1;
+}
+
+p {
+  @extend .font;
+  @extend .texts;
+  font-size: 0.9em;
+  margin-left: 15px;
+  margin-bottom: 15px;
+  line-height: 200%;
+  max-width: 600px; 
+}
+
+p+p.indent{
+  text-indent: 50px;
+}
+
+p.caption {
+  @extend .font;
+  @extend .texts;
+  color: #606060;
+  font-size: 0.8em;
+}
+
+p.caption2 {
+  @extend .font;
+  @extend .texts;
+  color: #9D9D9D;
+  font-size: 0.8em;
+}
+
+blockquote{
+  @extend .font;
+  @extend .texts;
+  color: #FF5621;
+  max-width: 520px;
+  font-size: 0.9em;
+}
+
+// Bold, underline, italics
+  b{
+    color: $black;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  u{
+    color: $orangeA400;
+  }
+
+  em, i{
+    color: #FCD734;
+  }
+
+  s{
+    color: $grey400;
+  }
+
+footer {
+  @extend .font;
+  @extend .texts;
+  color: $grey900;
+  text-align: center;
+  font-size: 0.7em;
+  opacity: 1;
+  margin-top: 40px;
+  margin-bottom: 10px; 
+}
+
+hr.footer{
+  background-color: #ededed;
+  border: 0;
+  border-top: solid #f9f9f9 1px;
+  border-right: solid #bcbcbc 1px;
+  height: 1px;
+  position: relative;
+  text-align: left;
+  width: 100%;
+}
+
+/*Links, lists, selection*/
+::selection {
+  background: $grey200;
+}
+
+a{
+  @extend .font;
+  @extend .texts;
+}
+
+a:link, a:visited {
+  color: $cyan500;
+  text-decoration: none; 
+}
+
+a:hover, a:active {
+  color: $coral500;
+  text-decoration: underline; 
+}
+
+a.no:link, a.no:visited {
+  color: white;
+  text-decoration: none; 
+}
+
+a.no:hover, a.no:active {
+  color: white;
+  text-decoration: none; 
+}
+
+ul, ol {
+  @extend .font;
+  @extend .texts;
+  font-size: 0.9em;
+  margin-bottom: 20px; 
+}
+
+li {
+  margin-bottom: 10px;
+  max-width: 600px; 
+}
+
+/*Side bar*/
+ul.menu{
+  top: 70px;
+  position: relative;
+  margin-left: -40px;
+  width: 100%;
+}
+
+hr.menu{
+  height: 1px;
+  border: none;
+  width: 90%;
+  background: $grey800;
+}
+
+li.menu{
+  display: block;
+  margin-left: 10px;
+  list-style: none;
+  padding: 5px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+a.menu:link, a.menu:visited {
+  opacity: 1;
+  color: white;
+  text-decoration: none; 
+}
+
+a.menu:hover, a.menu:active {
+  opacity: 1;
+  color: $grey600;
+  text-decoration: none; 
+}
+
+button{
+  @extend .font;
+  background: $coral500;
+  color: $white;
+  padding: 10px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1em;
+  border: none;
+  border-radius: 0px;
+  box-shadow: 0 0 6px 1px rgba(0,0,0,0.18);
+}
+
+button:hover{
+  background: $cyan500;
+}
