@@ -7,3 +7,8 @@ JavaScript piano player controlled through camera input based on chroma-key sele
 <a href="https://github.com/ycp217" target="_blank">Julie Pan</a> and <a href="https://github.com/chelseavalentine" target="_blank">Chelsea Valentine</a>
 
 <a href="http://chromakeyboard.s3-website-us-east-1.amazonaws.com/" target="_blank">View it in action here.</a>
+
+
+<hr>
+
+Thanks for appreciating our project: <a href="http://gitat.me/2015/03/26/Reverse_Chromesthesia/" target="_blank">Neal Shyam</a>
